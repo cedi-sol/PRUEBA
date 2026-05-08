@@ -1,104 +1,406 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regalos con Amor | Detalles Personalizados</title>
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Noe & María Store</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    
+
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
 </head>
+
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <div class="logo">Regalos <span>💖</span></div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!-- NAVBAR -->
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Regalos personalizados con amor 💖</h1>
-            <p>Haz que cada detalle sea inolvidable.</p>
-            <a href="#productos" class="btn-primary">Ver productos</a>
-        </div>
-    </section>
+<header class="header">
 
-    <section id="productos" class="products container">
-        <h2 class="section-title">Nuestros Detalles</h2>
-        
-        <div id="contenedorTienda" class="product-grid">
-            <p style="text-align: center; grid-column: 1/-1; color: #ec407a;">Cargando detalles con amor...</p>
-        </div>
-    </section>
+    <div class="logo">
 
-    <div id="modalPedido" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3>Finalizar Pedido</h3>
-            <form id="formPedido">
-                <input type="hidden" id="precioSelected">
-                <input type="text" id="prodSelected" readonly style="background: #fdf2f5; border: none; font-weight: bold; color: #ec407a;">
-                
-                <div class="row">
-                    <input type="number" id="cantidad" placeholder="Cantidad" value="1" min="1" required>
-                    <input type="text" id="dni" placeholder="DNI" required>
-                </div>
-                <textarea id="mensaje" placeholder="Mensaje personalizado (opcional)"></textarea>
-                <div class="row">
-                    <input type="text" id="nombre" placeholder="Nombre" required>
-                    <input type="text" id="apellidos" placeholder="Apellidos" required>
-                </div>
-                <input type="tel" id="celular" placeholder="Celular (ej. 987654321)" required>
-                <div class="row">
-                    <input type="text" id="dep" placeholder="Departamento" required>
-                    <input type="text" id="prov" placeholder="Provincia" required>
-                </div>
-                <div class="row">
-                    <input type="text" id="dist" placeholder="Distrito" required>
-                    <input type="text" id="dir" placeholder="Dirección" required>
-                </div>
-                
-                <button type="submit" class="btn-whatsapp">Confirmar y enviar a WhatsApp 📱</button>
-            </form>
-        </div>
+        ✨ Noe & María
+
     </div>
 
-    <footer id="contacto">
-        <div class="container">
-            <p>Nuestras redes sociales</p>
-            <div class="socials">
-                <span>Instagram</span> | <span>Facebook</span> | <span>TikTok</span>
-            </div>
-            <p class="made-with">Hecho con amor 💖</p>
-        </div>
-    </footer>
+    <nav>
 
-    <script>
-  const firebaseConfig = {
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-left">
+
+        <span class="tag">
+            ✨ Regalos personalizados
+        </span>
+
+        <h1>
+
+            Convierte un detalle
+            en un recuerdo eterno 💖
+
+        </h1>
+
+        <p>
+
+            Tazas, tomatodos, regalos,
+            detalles y productos hermosos
+            hechos con amor.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#productos" class="btn-primary">
+
+                Ver tienda
+
+            </a>
+
+            <a href="https://wa.me/51900890790"
+            target="_blank"
+            class="btn-secondary">
+
+                WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+    <div class="hero-slider">
+
+        <img class="hero-slide active"
+        src="https://alcole.pe/wp-content/uploads/2019/05/base-taza3.jpg">
+
+        <img class="hero-slide"
+        src="https://www.gyraxperu.com/wp-content/uploads/2018/02/Merchandising-Dia-de-la-Madre.jpg">
+
+        <img class="hero-slide"
+        src="https://leimport.pe/cdn/shop/files/mama2-mockup.jpg?v=1683589343">
+
+        <img class="hero-slide"
+        src="https://image.made-in-china.com/2f0j00NeFcqyugpwbW/Heart-Moulding-Scent-Candle-Sets-for-Mother-s-Day-Gifts.webp">
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- SHOWCASE PREMIUM -->
+
+<section class="showcase-section">
+
+    <div class="showcase-text">
+
+        <span>
+            ✨ Productos únicos
+        </span>
+
+        <h2>
+
+            Diseños que enamoran 💖
+
+        </h2>
+
+        <p>
+
+            Cada detalle está pensado
+            para sorprender y emocionar.
+
+        </p>
+
+    </div>
+
+    <div class="showcase-grid">
+
+        <div class="showcase-item big">
+
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200">
+
+            <div class="showcase-overlay">
+
+                <h3>
+                    Regalos aesthetic
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="showcase-item">
+
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200">
+
+        </div>
+
+        <div class="showcase-item">
+
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200">
+
+        </div>
+
+        <div class="showcase-item wide">
+
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTOS -->
+
+<section class="products-section" id="productos">
+
+    <div class="section-header">
+
+        <h2>
+
+            Productos destacados ✨
+
+        </h2>
+
+        <p>
+
+            Encuentra el regalo perfecto 💖
+
+        </p>
+
+    </div>
+
+    <div id="contenedorTienda"
+    class="products-grid">
+
+        <p class="loading">
+
+            Cargando productos...
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- MODAL -->
+
+<div id="modalPedido" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close"
+        onclick="closeModal()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="modal-top">
+
+            <h2>
+
+                Finalizar Pedido 💖
+
+            </h2>
+
+            <p>
+
+                Completa tus datos
+
+            </p>
+
+        </div>
+
+        <form id="formPedido">
+
+            <input type="hidden"
+            id="precioSelected">
+
+            <input type="text"
+            id="prodSelected"
+            readonly
+            class="product-selected">
+
+            <div class="grid-2">
+
+                <input type="number"
+                id="cantidad"
+                placeholder="Cantidad"
+                value="1"
+                min="1"
+                required>
+
+                <input type="text"
+                id="dni"
+                placeholder="DNI"
+                required>
+
+            </div>
+
+            <textarea id="mensaje"
+            placeholder="Mensaje personalizado">
+            </textarea>
+
+            <div class="grid-2">
+
+                <input type="text"
+                id="nombre"
+                placeholder="Nombre"
+                required>
+
+                <input type="text"
+                id="apellidos"
+                placeholder="Apellidos"
+                required>
+
+            </div>
+
+            <input type="tel"
+            id="celular"
+            placeholder="Celular"
+            required>
+
+            <div class="grid-2">
+
+                <input type="text"
+                id="dep"
+                placeholder="Departamento"
+                required>
+
+                <input type="text"
+                id="prov"
+                placeholder="Provincia"
+                required>
+
+            </div>
+
+            <div class="grid-2">
+
+                <input type="text"
+                id="dist"
+                placeholder="Distrito"
+                required>
+
+                <input type="text"
+                id="dir"
+                placeholder="Dirección"
+                required>
+
+            </div>
+
+            <button type="submit"
+            class="btn-whatsapp">
+
+                Confirmar pedido 📱
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer id="contacto">
+
+    <h2>
+
+        Síguenos 💖
+
+    </h2>
+
+    <div class="socials">
+
+        <a href="#" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a href="https://wa.me/51900890790"
+        target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+    </div>
+
+    <p>
+
+        Hecho con amor 💖
+
+    </p>
+    <p>
+
+        Creado por Alfonso Diaz 
+
+    </p>
+    <p>
+
+        2026
+
+    </p>
+
+</footer>
+
+<!-- FIREBASE -->
+
+<script>
+
+const firebaseConfig = {
+
     apiKey: "AIzaSyCnhVRBninIa_mEq6-ACDYFNoWpRxDgAuc",
     authDomain: "minitienda-647d0.firebaseapp.com",
     projectId: "minitienda-647d0",
     storageBucket: "minitienda-647d0.firebasestorage.app",
     messagingSenderId: "83193235641",
-    appId: "1:83193235641:web:930d304e88a778204cf368",
-    measurementId: "G-X77MB5XV7M"
-  };
-  
-  // Inicializar
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore(); // Esta línea es vital para que el script.js funcione
+    appId: "1:83193235641:web:930d304e88a778204cf368"
+
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
 </script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
