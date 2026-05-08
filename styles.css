@@ -896,28 +896,6 @@ footer{
 
 /* RESPONSIVE */
 
-@media(max-width:1000px){
-
-    .hero{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .hero h1{
-
-        font-size:3rem;
-
-    }
-
-    .hero-card img{
-
-        height:500px;
-
-    }
-
-}
-
 @media(max-width:768px){
 
     .header nav{
@@ -941,6 +919,30 @@ footer{
     .hero-buttons{
 
         flex-direction:column;
+
+    }
+
+    .hero-card{
+
+        border-radius:25px;
+
+    }
+
+    .hero-slider{
+
+        height:350px;
+
+    }
+
+    .hero-slide{
+
+        object-fit:cover;
+
+    }
+
+    .hero-card img{
+
+        height:350px;
 
     }
 
@@ -969,6 +971,7 @@ footer{
     .btn-whatsapp{
 
         position:sticky;
+
         bottom:0;
 
     }
