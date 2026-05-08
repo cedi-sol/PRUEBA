@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalos con Amor | Detalles Personalizados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Regalos <span>💖</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Regalos personalizados con amor 💖</h1>
+            <p>Haz que cada detalle sea inolvidable.</p>
+            <a href="#productos" class="btn-primary">Ver productos</a>
+        </div>
+    </section>
+
+    <section id="productos" class="products container">
+        <h2 class="section-title">Nuestros Detalles</h2>
+        
+        <div id="contenedorTienda" class="product-grid">
+            <p style="text-align: center; grid-column: 1/-1; color: #ec407a;">Cargando detalles con amor...</p>
+        </div>
+    </section>
+
+    <div id="modalPedido" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Finalizar Pedido</h3>
+            <form id="formPedido">
+                <input type="hidden" id="precioSelected">
+                <input type="text" id="prodSelected" readonly style="background: #fdf2f5; border: none; font-weight: bold; color: #ec407a;">
+                
+                <div class="row">
+                    <input type="number" id="cantidad" placeholder="Cantidad" value="1" min="1" required>
+                    <input type="text" id="dni" placeholder="DNI" required>
+                </div>
+                <textarea id="mensaje" placeholder="Mensaje personalizado (opcional)"></textarea>
+                <div class="row">
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+                    <input type="text" id="apellidos" placeholder="Apellidos" required>
+                </div>
+                <input type="tel" id="celular" placeholder="Celular (ej. 987654321)" required>
+                <div class="row">
+                    <input type="text" id="dep" placeholder="Departamento" required>
+                    <input type="text" id="prov" placeholder="Provincia" required>
+                </div>
+                <div class="row">
+                    <input type="text" id="dist" placeholder="Distrito" required>
+                    <input type="text" id="dir" placeholder="Dirección" required>
+                </div>
+                
+                <button type="submit" class="btn-whatsapp">Confirmar y enviar a WhatsApp 📱</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <div class="container">
+            <p>Nuestras redes sociales</p>
+            <div class="socials">
+                <span>Instagram</span> | <span>Facebook</span> | <span>TikTok</span>
+            </div>
+            <p class="made-with">Hecho con amor 💖</p>
+        </div>
+    </footer>
+
+    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCnhVRBninIa_mEq6-ACDYFNoWpRxDgAuc",
+    authDomain: "minitienda-647d0.firebaseapp.com",
+    projectId: "minitienda-647d0",
+    storageBucket: "minitienda-647d0.firebasestorage.app",
+    messagingSenderId: "83193235641",
+    appId: "1:83193235641:web:930d304e88a778204cf368",
+    measurementId: "G-X77MB5XV7M"
+  };
+  
+  // Inicializar
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore(); // Esta línea es vital para que el script.js funcione
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
